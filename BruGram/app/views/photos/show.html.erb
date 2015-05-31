@@ -1,0 +1,5 @@
+<%= image_tag(@photo.image, width: "30%", height: "30%") %>
+<%= @photo.caption %>
+<%= link_to "Home", photos_path %>
+<%= link_to "Edit", edit_photo_path(@photo.id) %>
+<%= link_to "Delete", photo_path(@photo), method: :delete, data: {confirm: "Are you sure you want to delete your picture?"} %>
