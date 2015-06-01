@@ -1,13 +1,16 @@
 class HashtagsController < ApplicationController
 	def create
-		@photo = Photo.find params[:id]
-		@hashtags = @photo.caption.scan(/#\w+/).flatten
-
-		@hashtags.each do |hashtag|
-			@hashtag = Hashtag.new(hashtag)
-			@hashtag.save
-
+		@hashtag = Hashtag.new(params[:id])
+		@photos = Photo.all
+		@photos.each do |photo|
+			if photo.hashtags_id = @hashtag.id
+				@hashtag.photos_id = photo.id
+			end
 		end
+
+		
+
+		
 	end
 
 
