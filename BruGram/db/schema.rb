@@ -11,25 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150531175746) do
+ActiveRecord::Schema.define(version: 20150601184815) do
 
   create_table "hashtags", force: :cascade do |t|
     t.string   "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "photos_id"
   end
 
-  add_index "hashtags", ["photos_id"], name: "index_hashtags_on_photos_id"
+  create_table "hashtags_photos", id: false, force: :cascade do |t|
+    t.integer "hashtag_id", null: false
+    t.integer "photo_id",   null: false
+  end
+
+  add_index "hashtags_photos", ["hashtag_id", "photo_id"], name: "index_hashtags_photos_on_hashtag_id_and_photo_id"
+  add_index "hashtags_photos", ["photo_id", "hashtag_id"], name: "index_hashtags_photos_on_photo_id_and_hashtag_id"
 
   create_table "photos", force: :cascade do |t|
     t.text     "caption"
     t.string   "image"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "hashtags_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "photos", ["hashtags_id"], name: "index_photos_on_hashtags_id"
 
 end
