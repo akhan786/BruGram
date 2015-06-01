@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :photos do
-    resources :hashtags
+    resources :comments
   end
+
+  resources :hashtags
+  
+  get '/photo/:id/like' => 'photos#like', as: 'like_photo'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

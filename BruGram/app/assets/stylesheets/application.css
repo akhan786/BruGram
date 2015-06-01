@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,3 +14,66 @@
  *= require_tree .
  *= require_self
  */
+
+
+h1 {
+	text-align: center;
+	color:blue;
+	font-family: 'Indie Flower', cursive;
+	font-size: 70px;
+	padding: 0 20px 0 20px;
+}
+
+body {
+	background-color: #A7ABA2; 
+}
+
+div {
+	text-align: center;
+
+}
+
+.add-new-image {
+	font-family: 'Indie Flower', cursive;
+	font-size: 30px;
+
+}
+
+.instructions {
+	font-family: 'Indie Flower', cursive;
+	font-size: 30px;
+	padding-bottom: 30px;
+}
+
+.images {
+	padding-bottom: 32px;
+	padding-top: 32px;
+
+}
+
+.caption {
+	text-align: center;
+	color:black;
+	font-family: 'Indie Flower', cursive;
+	font-size: 30px;
+}
+.photo {
+	text-align: center;
+}
+.buttons {
+		font-family: 'Indie Flower', cursive;
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+h2 {
+	text-align: center;
+	color:black;
+	font-family: 'Indie Flower', cursive;
+	font-size: 50px;
+	padding: 0 20px 0 20px;
+}
+
+.dashes {
+	font-weight: 900;
+}

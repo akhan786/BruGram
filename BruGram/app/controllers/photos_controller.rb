@@ -7,14 +7,12 @@ class PhotosController < ApplicationController
 		@photo = Photo.new(photo_params)
 		@photo.save
 		@hashtags = @photo.caption.scan(/#\w+/).flatten
-binding.pry
 		@hashtags.each do |hash|
-			@hashtag = Hashtag.create(text: hash, photos_id: @photo.id)
-			@photo.hashtags_id = @hashtag.id
+			@hashtag = Hashtag.create(text: hash)
+			@photo.hashtags << @hashtag
 		end
-		
+
 		if @photo.save
-			@hashtag.photos_id = @photo.id	
 			redirect_to @photo
 		else
 			render 'new'	
@@ -29,7 +27,7 @@ binding.pry
 
 	def show
 		@photo = Photo.find params[:id]
-		@hashtag = Hashtag.find_by photos_id: @photo.id
+		@hashtags = @photo.hashtags
 	end
 
 	def update
@@ -51,7 +49,12 @@ binding.pry
 		redirect_to photos_path
 	end	
 
+	def like
+		@photo= Photo.find params[:id]
+		@photo.liked!
 
+		redirect_to @photo
+	end
 
 	private
 	def photo_params

@@ -1,9 +1,21 @@
+<h1>BruGram</h1>
+<div class = "add-new-image">
+<%= link_to "add new image", new_photo_path %>
+</div>
+<div class = "instructions">
+click on a picture to view/edit its caption
+</div>
+<div>
 <% @photos.each do |photo|%>
 
-
+<div class = "images">
 <%= link_to image_tag(photo.image, width: "30%", height: "30%"), photo_path(photo) %>
-
+</div>
+<div class = 'dashes'>
+---------------------------------------------------------------------------------------------
+</div>
 
 <% end %>
+</div>
 
-<%= link_to "add new image", new_photo_path %>
+

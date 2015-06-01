@@ -20,7 +20,6 @@ class HashtagsController < ApplicationController
 
 	def show
 		@hashtag = Hashtag.find params[:id]
-	
-		@photo = Photo.find (@hashtag.photos_id)
-end
+		@photos = @hashtag.photos
+	end
 end
