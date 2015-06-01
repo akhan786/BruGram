@@ -1,4 +1,25 @@
 <%= image_tag(@photo.image, width: "30%", height: "30%") %>
+<% if (@photo.caption.include?("#")) %>
+
+<!-- 		<% array = @photo.caption.split(" ") %>
+		<% hash = Hash[array.map.with_index.to_a] %>
+		<% hasharray = [] %>
+		<% array.each do |word| %>
+			<% if(word.include?("#")) %>
+				<% hasharray << word %>
+			<% end %>
+		<% end %>
+		<% hasharray.each do |word| %>
+			<% array[hash[word]] = link_to word, photo_hashtag_path(@photo.id, @hashtag.id) %>
+		<% end %>
+		<%= array%>
+		<%= array.join(" ") %>	 -->		
+
+	<%= link_to @photo.caption, photo_hashtag_path(@photo.id, @hashtag.id) %>
+<% else %>
+	<%= @photo.caption %>
+<% end %>	
+
 <%= @photo.caption %>
 <%= link_to "Home", photos_path %>
 <%= link_to "Edit", edit_photo_path(@photo.id) %>

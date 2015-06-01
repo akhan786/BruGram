@@ -5,29 +5,16 @@ class PhotosController < ApplicationController
 
 	def create
 		@photo = Photo.new(photo_params)
+		@photo.save
 		@hashtags = @photo.caption.scan(/#\w+/).flatten
-				@hashtags.each do |hash|
-				@hashtag = Hashtag.create(text: hash, photos_id: @photo.id)
-
-				@hashtag.save
-				@photo.hashtags_id = @hashtag.id
-
-
-				@photos = Photo.all
-				@photos.each do |photo|
-					if photo.hashtags_id = @hashtag.id
-						@hashtag.photos_id = photo.id
-					end
-				end
-				
-				end
-
-
-		
-
+binding.pry
+		@hashtags.each do |hash|
+			@hashtag = Hashtag.create(text: hash, photos_id: @photo.id)
+			@photo.hashtags_id = @hashtag.id
+		end
 		
 		if @photo.save
-				
+			@hashtag.photos_id = @photo.id	
 			redirect_to @photo
 		else
 			render 'new'	
@@ -42,6 +29,7 @@ class PhotosController < ApplicationController
 
 	def show
 		@photo = Photo.find params[:id]
+		@hashtag = Hashtag.find_by photos_id: @photo.id
 	end
 
 	def update

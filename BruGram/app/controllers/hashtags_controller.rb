@@ -18,4 +18,9 @@ class HashtagsController < ApplicationController
 		@hashtag = Hashtag.new
 	end
 
+	def show
+		@hashtag = Hashtag.find params[:id]
+	
+		@photo = Photo.find (@hashtag.photos_id)
+end
 end
