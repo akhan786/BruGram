@@ -1,5 +1,11 @@
-<%= @hashtag.text %>
-
+<h1> <%= @hashtag.text %> </h1>
+<div class = "buttons">
+<%= link_to "Home", photos_path %></div>
 <% @photos.each do |photo| %>
-	<%= image_tag(photo.image, width: "30%", height: "30%") %>
+<div class = "images">
+	<%= link_to image_tag(photo.image, width: "30%", height: "30%"), photo_path(photo) %>
+</div>
+<div class = 'dashes'>
+---------------------------------------------------------------------------------------------
+</div>
 <% end %>

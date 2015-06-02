@@ -7,8 +7,13 @@ class PhotosController < ApplicationController
 		@photo = Photo.new(photo_params)
 		@photo.save
 		@hashtags = @photo.caption.scan(/#\w+/).flatten
+		@hashs = Hashtag.all
 		@hashtags.each do |hash|
-			@hashtag = Hashtag.create(text: hash)
+			if(Hashtag.find_by text: hash)
+				@hashtag = Hashtag.find_by text: hash
+			else
+				@hashtag = Hashtag.create(text: hash)
+			end			
 			@photo.hashtags << @hashtag
 		end
 

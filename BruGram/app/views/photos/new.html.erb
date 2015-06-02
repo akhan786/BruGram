@@ -1,4 +1,9 @@
 
+
+<h2>Enter in an image url and a caption!</h2>
+
+
+<div class = "newform">
 <%= form_for @photo do |f| %>
 
 <p> 
@@ -14,4 +19,6 @@
 	<p>
 	<%= f.submit %>
 	</p>
-<% end %>	
+<% end %>
+<%= link_to "Go back", photos_path %>	
+</div>

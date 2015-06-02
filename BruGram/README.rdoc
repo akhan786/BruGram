@@ -1,3 +1,38 @@
+0. Demo 
+
+1. Design Layout
+Three models: photo, hashtag, comment
+The relationsihp between photo and hashtag: has_and_belongs_to_many 
+The relationsihp between photo and comment: has_many & belong 
+The photo controller is where all main actions happen.
+The main feature in our project is creating hashtag; it is created under 
+photo create method. 
+
+We added like method and it allows a user to like. 
+We also added comment function. 
+
+
+2. Boostrap Challenges
+We weren't sure how to use the twitter-bootstrap gem, even though we were able to run bundle and everything we didn't really know where to go from there to add either a theme or bootstrap features. 
+
+Instead, we created our own stylesheet and implemented that
+
+3. hashtag challenges 
+We tried very complicated code to put the hashtag within the caption, but it wasn't working so we changed it and put the hashtags underneath instead of within our captions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 == README
 
 This README would normally document whatever steps are necessary to get the

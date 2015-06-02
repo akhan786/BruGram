@@ -25,7 +25,7 @@ h1 {
 }
 
 body {
-	background-color: #A7ABA2; 
+	background-image: url(http://i.imgur.com/e5Tg6Ou.png); 
 }
 
 div {
@@ -71,9 +71,24 @@ h2 {
 	color:black;
 	font-family: 'Indie Flower', cursive;
 	font-size: 50px;
-	padding: 0 20px 0 20px;
+	padding-bottom: 50px;
 }
 
 .dashes {
 	font-weight: 900;
+}
+.newform{
+	text-align: center;
+	padding-top: 100px;
+
+}
+.hashes{
+	text-align: center;
+	padding-bottom: 50px;
+}
+.like{
+	text-align: center;
+}
+.comments{
+	text-align: center;
 }
